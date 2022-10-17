@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .Gradient_Btn {
+            width: 90px;
+            height: 30px;
+            border-radius: 50px;
+            text-align: center;
+            background-color: aqua;
+            background-image: linear-gradient(to left, #EAD6EE, #A0F1EA, rgb(124, 241, 241), #e3a5f0, #EAD6EE);
+            background-size: 500%;
+            animation: run 4s linear 0s infinite;
+            /* 按钮中文字居中 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        @keyframes run {
+            100% {
+                background-position: 500% 0px;
+            }
+        }
+
+        .btn_text {
+            text-align: center;
+            color: #909399;
+            font-weight: 700;
+            /* 禁止文字被选中 */
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Gradient_Btn" id="Gradient_Btn">
+        <span class="btn_text">Let's Go</span>
+    </div>
+    <img src="/src/assets/logo.png" alt="" id="imgExm">
+</body>
+<script src="/src/utils/promiseRetry.js"></script>
+<script>
+    // 按钮
+    const Gradient_Btn = document.getElementById('Gradient_Btn');
+    // 图片
+    const imgExm = document.getElementById('imgExm');
+    Gradient_Btn.addEventListener('click', function (event) {
+        console.log(imgExm.src);
+        imgExm.src = '/src/assets/portrait.jpg'
+    }, false)
+
+
+
+    // 1. 异步函数 Promise和setTimeout
+    // 2. Promise.retry 重试Promise
+    function fn() {
+        const n = Math.random(); // 0-1
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (n > 0.7) {
+                    resolve(n);
+                } else {
+                    reject(n);
+                }
+            }, 1000);
+        });
+    }
+    // promiseRetry(fn, 3);
+
+    const _value = {
+        province: '江苏省',
+        city: '苏州市',
+        district: '张家港',
+        business: '张家港',
+        street: 'XXX街道',
+    }
+    deduplication(_value)
+    function deduplication(obj) {
+        const haveStr = [];
+        for (const key in obj) {
+            // if (haveStr.includes(obj[key])){
+            //     obj[key] = '';
+            // }else{
+            //     haveStr.push(obj[key]);
+            // }
+            if(haveStr.findIndex(ele => ele === obj[key]) >0){
+                obj[key] = '';
+            }else{
+                haveStr.push(obj[key]);
+            }
+        }
+    }
+    let myVal = _value.province + _value.city + _value.district + _value.street + _value.business
+    console.log(myVal);
+</script>
+
+</html>
