@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         .Gradient_Btn {
-            width: 90px;
+            /* width: 90px; */
             height: 30px;
             border-radius: 50px;
             text-align: center;
@@ -39,7 +39,7 @@
 
 <body>
     <div class="Gradient_Btn" id="Gradient_Btn">
-        <span class="btn_text">Let's Go</span>
+        <span class="btn_text">Change Img</span>
     </div>
     <img src="/src/assets/logo.png" alt="" id="imgExm">
 </body>
@@ -71,32 +71,6 @@
         });
     }
     // promiseRetry(fn, 3);
-
-    const _value = {
-        province: '江苏省',
-        city: '苏州市',
-        district: '张家港',
-        business: '张家港',
-        street: 'XXX街道',
-    }
-    deduplication(_value)
-    function deduplication(obj) {
-        const haveStr = [];
-        for (const key in obj) {
-            // if (haveStr.includes(obj[key])){
-            //     obj[key] = '';
-            // }else{
-            //     haveStr.push(obj[key]);
-            // }
-            if(haveStr.findIndex(ele => ele === obj[key]) >0){
-                obj[key] = '';
-            }else{
-                haveStr.push(obj[key]);
-            }
-        }
-    }
-    let myVal = _value.province + _value.city + _value.district + _value.street + _value.business
-    console.log(myVal);
 </script>
 
 </html>

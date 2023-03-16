@@ -1,21 +1,19 @@
 <template>
   <div>
     <!-- 剑气加载 -->
-    <!-- <SwordLoad/> -->
+    <SwordLoad />
   </div>
 </template>
 
 <script>
-// import SwordLoad from '@/components/SwordLoading'
+import SwordLoad from '@/components/SwordLoading'
 export default {
   components: {
-    // SwordLoad
+    SwordLoad
   },
   data() {
-    return {
-    };
+    return {};
   },
-  methods: {
-  },
+  methods: {},
 };
 </script>

@@ -5,7 +5,9 @@
       <span></span>
       <span></span>
     </div>
-    <div style="color: aliceblue; text-align: center">加载中...请稍等</div>
+    <div id="typeContianer">
+      <span id="loadingText">加载中,请稍等...</span>
+    </div>
   </div>
 </template>
 <script>
